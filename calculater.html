@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="calculater.css" />
+    <script src="calculator.js"></script>
+    <title>calculator</title>
+</head>
+<body>
+     <div class="calculator">
+        <h1>calculator</h1>
+        <input type="text" class="input_cal" id="result" readonly />
+        <div class="btn_wrap">
+        <button class="Cal_btn" onclick="appendNumber('7')"> 7</button>
+        <button class="Cal_btn" onclick="appendNumber('8')"> 8</button>
+        <button class="Cal_btn" onclick="appendNumber('9')">9</button>
+        <button class="Cal_btn" onclick="allOperator('+')"> +</button>
+        <button class="Cal_btn" onclick="appendNumber('4')"> 4</button>
+        <button class="Cal_btn" onclick="appendNumber('5')">5</button>
+        <button class="Cal_btn" onclick="appendNumber('6')"> 6</button>
+        <button class="Cal_btn" onclick="allOperator('-')"> -</button>
+        <button class="Cal_btn" onclick="appendNumber('1')">1</button>
+        <button class="Cal_btn" onclick="appendNumber('2')"> 2</button>
+        <button class="Cal_btn" onclick="appendNumber('3')"> 3</button>
+        <button class="Cal_btn" onclick="allOperator('*')">*</button>
+        <button class="Cal_btn" onclick="clearResult()"> CE</button>
+        <button class="Cal_btn" onclick="appendNumber('0')"> 0</button>
+        <button class="Cal_btn" onclick="calculation()">=</button>
+        <button class="Cal_btn" onclick="allOperator('/')"> /</button> 
+    </div>
+     </div>   
+
+
+
+</body>
+</html>
+
+
+<script>
+    let current_inp = '';
+let current_operator = '';
+let pre_inp = '';
+
+function appendNumber(num) {
+    current_inp += num;
+    updateDisplay();
+}
+function updateDisplay() {
+    document.getElementById('result').value = current_inp;
+}
+function allOperator(operator) {
+    if (current_inp === '') return;
+    if (pre_inp !== '') {
+        calculation();
+        // console.log(allOperator)
+    }
+    current_operator = operator;
+    pre_inp = current_inp;
+    current_inp = '';
+}
+function calculation() {
+    if (pre_inp === '' || current_inp === '') return;
+    const first_num = parseFloat(pre_inp);
+    const second_num = parseFloat(current_inp);
+    let result = 0;
+    switch (current_operator) {
+        case '+':
+            result = first_num + second_num;
+            break;
+            case '-':
+            result = first_num - second_num;
+            break;
+            case '*':
+            result = first_num * second_num;
+            break;
+            case '/':
+            result = first_num / second_num;
+            break;
+            case '':
+            
+
+    }
+
+    current_inp=result.toString();
+    pre_inp='';
+    current_operator='';
+    updateDisplay();
+}
+
+function clearResult(){
+  document.getElementById('result').value=current_inp;
+}
+
+
+</script>
