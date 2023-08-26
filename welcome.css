@@ -1,0 +1,37 @@
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: bisque;
+}
+
+.welcome_msg_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    text-align: center;
+    padding: 50px;
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid #8b7b7b;
+}
+p{
+    font-size: 20px;
+    font-weight: 600;
+    font-family: cursive;
+}
+.click_btn{
+    border-radius: 8px;
+    padding: 8px 20px;
+    background-color: #5d5de0;
+    color: white;
+    font-size: 20px;    
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="concatination.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="name_container">
+        <form id="user_fullname">
+            <div class="name_wrap">
+                <label for="f_name">First Name:</label>
+                <input type="text" id="f_name" required><br><br>
+            </div>
+            <div class="name_wrap">
+                <label for="m_name">Middle Name:</label>
+                <input type="text" id="m_name"><br><br>
+            </div>
+            <div class="name_wrap">
+                <label for="l_name">Last Name:</label>
+                <input type="text" id="l_name" required><br><br>
+            </div>
+            <input class="submit_btn" type="button" value="Submit" onclick="functionName()">
+        </form>
+        <p id="UserName"></p>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function functionName() {
+        var f_name = document.getElementById("f_name").value;
+        var m_name = document.getElementById("m_name").value;
+        var l_name = document.getElementById("l_name").value;
+
+        var fullName = f_name + " " + (m_name ? m_name + " " : "") + l_name;
+
+        document.getElementById("UserName").textContent = "Full Name: " + fullName;
+        alert("Entered Full Name: " + fullName);
+    }
+</script>
